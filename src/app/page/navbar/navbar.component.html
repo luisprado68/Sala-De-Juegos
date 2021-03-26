@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-light ">
+    <a class="navbar-brand" [routerLink]="['/']"><img src="../../../assets/dado.png" alt="" width="50px"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <!-- <span class="navbar-toggler-icon white"></span> -->
+      <div class="form-group" id="menu-group">
+        <!-- <input type="text" class="form-control" placeholder="Nombre de usuario" name="username"/> -->
+    </div>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item ">
+          <a  class="nav-link" [routerLink]="['/']">Incio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/quiensoy']">Acerca de</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Juegos
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Piedra Papel o Tijera</a>
+            <a class="dropdown-item" href="#">Tateti</a>
+            <a class="dropdown-item" href="#">Memotest</a>
+          </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/registro']">Registrarse</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"  [routerLink]="['/login']">Ingresar</a>
+          </li>
+      </ul>
+      
+    </div>
+  </nav>

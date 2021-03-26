@@ -1,0 +1,25 @@
+nav{
+    background-color: #011C6A;
+}
+
+.navbar-toggler {
+    padding: 10px 18px;
+   
+}
+
+
+.form-group::before{
+    font-family: "Font Awesome\ 5 Free";
+    position: absolute;
+    right: 25px;
+    top: 24px;
+    font-size: 22px;
+    padding-top:4px;
+    color: #fff;
+}
+
+.form-group#menu-group::before{
+    content: "\f0c9";
+}
+
+

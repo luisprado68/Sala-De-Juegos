@@ -1,2 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import'bootstrap/dist/css/bootstrap.css';
+.contenedor{
+    background: url(/assets/arcade.jpg) no-repeat 50% 50% fixed; 
+    background-size: cover;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}

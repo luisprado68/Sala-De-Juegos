@@ -1,6 +1,8 @@
-/* body{
-    background: url(../img/background.jpg) no-repeat center center fixed;
+/* .contenedor{
+    background: url(../../../assets/arcade.jpg) no-repeat 50% 50%; 
     background-size: cover;
+    margin: 0;
+    padding: 0;
 } */
 
 .main-section{
@@ -15,6 +17,7 @@
     padding: 0 20px;
     /* box-shadow: 0px 0px 3px #848484; */
 }
+
 .user-img{
     margin-top: -50px;
     margin-bottom: 35px;
@@ -43,11 +46,20 @@
     padding-top:4px;
 }
 
-.form-group#email-group::before{
-    content: "\f0e0";
+.form-group#nombre-group::before{
+    content: "\f007";
+}
+.form-group#apellido-group::before{
+    content: "\f007";
 }
 
 .form-group#contrasena-group::before{
+    content: "\f023";
+}
+.form-group#email-group::before{
+    content: "\f0e0";
+}
+.form-group#contrasena2-group::before{
     content: "\f023";
 }
 
@@ -63,7 +75,4 @@ button{
 .forgot a{
     color: white;
 }
-.botonLogin{
-    width: 56%;
-    margin: 5px 0 25px;
-}
+
