@@ -18,11 +18,7 @@ export class HomeComponent  {
     private AuthService:AuthService,
     private MensajesService:MensajesService) { }
 
-  Registro(){
-
-    this.AuthService.usuario = 'Luis';
-    this.router.navigate(['registro']);
-  }
+  
   /*EnviarMensaje(){
     //con el thern lo que hacemos es escuchar 
     this.MensajesService.create(this.mensaje).then(()=>{
