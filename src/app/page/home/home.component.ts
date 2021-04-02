@@ -11,7 +11,7 @@ import { MensajesService } from '../../services/mensajes.service';
 })
 export class HomeComponent  {
   
-  mensaje:Mensaje = new Mensaje();
+  //mensaje:Mensaje = new Mensaje();
 
   constructor(
     private router:Router,
@@ -23,11 +23,11 @@ export class HomeComponent  {
     this.AuthService.usuario = 'Luis';
     this.router.navigate(['registro']);
   }
-  EnviarMensaje(){
+  /*EnviarMensaje(){
     //con el thern lo que hacemos es escuchar 
     this.MensajesService.create(this.mensaje).then(()=>{
       console.log("Mensaje Enviado");
     })
-  }
+  }*/
 
 }

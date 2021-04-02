@@ -11,6 +11,7 @@ export class MensajesService {
 
   private dbpath = '/mensajes';
   mensajesRef:AngularFirestoreCollection<Mensaje>
+
   constructor(
     private db:AngularFirestore
   ) {
@@ -24,6 +25,7 @@ export class MensajesService {
       return this.mensajesRef;
    }
    create(mensaje:Mensaje){
-     return this.mensajesRef.add({...mensaje});
+    //  console.log(mensaje);
+     return this.mensajesRef.add(Object.assign({}, mensaje));
    }
 }

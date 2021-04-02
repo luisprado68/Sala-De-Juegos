@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Mensaje } from 'src/app/clases/mensaje';
 import { AuthService } from '../../services/auth.service';
-
+import { MensajesService } from '../../services/mensajes.service';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -15,10 +16,14 @@ export class RegistroComponent  {
   correo:string ="";
   constrasena:string ="";             
   constrasenaConfirm:string ="";
+  mensaje:Mensaje = new Mensaje();
+
+  
 
   constructor(
     private AuthService:AuthService,
-    private router:Router ) {
+    private router:Router,
+    private MensajesService:MensajesService ) {
       this.usuarioIngresado = this.AuthService.usuario;
       
      }
@@ -30,12 +35,21 @@ export class RegistroComponent  {
         this.AuthService.validarMail(this.correo)&&
         this.AuthService.validar(this.constrasena)&&
         this.AuthService.validar(this.constrasenaConfirm)){
+          
+          this.mensaje.Nombre =this.nombre;
+          this.mensaje.Apellido = this.apellido;
+          this.mensaje.Correo = this.correo;
+          this.mensaje.Contrasena = this.constrasena;
+          this.mensaje.ContrasenaConfirm = this.constrasenaConfirm;
+          
+          // this.AuthService.apeliido = this.apellido;
+          // this.AuthService.correo = this.correo;
+          // this.AuthService.pass = this.constrasena;
+          // this.AuthService.passConfirm = this.constrasenaConfirm;
 
-          this.AuthService.nombre = this.nombre;
-          this.AuthService.apeliido = this.apellido;
-          this.AuthService.correo = this.correo;
-          this.AuthService.pass = this.constrasena;
-          this.AuthService.passConfirm = this.constrasenaConfirm;
+          this.MensajesService.create(this.mensaje).then(()=>{
+            console.log("Mensaje Enviado");
+          })
 
         //una vez valiadodo se debe redirifigri a home
         this.router.navigate(['login']);
