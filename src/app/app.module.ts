@@ -11,6 +11,7 @@ import { RegistroComponent } from './page/registro/registro.component';
 import { NavbarComponent } from './page/navbar/navbar.component';
 import { AuthService } from './services/auth.service';
 import { QuienSoyComponent } from './page/quien-soy/quien-soy.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { QuienSoyComponent } from './page/quien-soy/quien-soy.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    CommonModule
   ],
   providers: [
     AuthService

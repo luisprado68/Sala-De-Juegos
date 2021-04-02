@@ -25,12 +25,26 @@
             <a class="dropdown-item" href="#">Memotest</a>
           </div>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/registro']">Registrarse</a>
+        
+        
+        <li *ngIf="nombre; else registro" class="nav-item">
+            <a class="nav-link" href="#" >{{nombre}}</a>
         </li>
-        <li class="nav-item">
+       
+        <ng-template #registro>
+            <a class="nav-link" [routerLink]="['/registro']">Registrarse</a>
+        </ng-template>
+        
+        <li *ngIf="nombre; else logout" class="nav-item">
+          <a class="nav-link" href="#" >Cerrar Sesion</a>
+        </li>
+        <ng-template #logout>
+          <li class="nav-item">
             <a class="nav-link"  [routerLink]="['/login']">Ingresar</a>
           </li>
+        </ng-template>
+        
+        
       </ul>
       
     </div>
