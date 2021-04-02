@@ -12,6 +12,9 @@ import { NavbarComponent } from './page/navbar/navbar.component';
 import { AuthService } from './services/auth.service';
 import { QuienSoyComponent } from './page/quien-soy/quien-soy.component';
 import { CommonModule } from '@angular/common';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment.prod';
+import {AngularFireDatabaseModule} from '@angular/fire/database';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,11 @@ import { CommonModule } from '@angular/common';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    //agregamos los modulos de firebase
+    //enn angular el json del enviroment
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule
   ],
   providers: [
     AuthService
