@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {AngularFireDatabaseModule} from '@angular/fire/database';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from '../environments/environment.prod';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,9 +15,8 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { AuthService } from './services/auth.service';
 import { QuienSoyComponent } from './general/page/quien-soy/quien-soy.component';
 import { CommonModule } from '@angular/common';
-import { AngularFireModule } from '@angular/fire';
-import { environment } from '../environments/environment.prod';
-import {AngularFireDatabaseModule} from '@angular/fire/database';
+
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,16 +25,19 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
     LoginComponent,
     RegistroComponent,
     NavbarComponent,
-    QuienSoyComponent
+    QuienSoyComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     CommonModule,
+    ReactiveFormsModule,
     //agregamos los modulos de firebase
     //enn angular el json del enviroment
+    //AngularFireModule.initializeApp(environment.firebase),
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
     AngularFireDatabaseModule
   ],
   providers: [

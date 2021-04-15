@@ -12,6 +12,7 @@
         <li class="nav-item ">
           <a  class="nav-link" [routerLink]="['/']"  routerLinkActive="activebutton">Incio</a>
         </li>
+       
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/quiensoy']"  routerLinkActive="activebutton">Acerca de</a>
         </li>
@@ -27,16 +28,16 @@
         </li>
         
         
-        <li *ngIf="nombre; else registro" class="nav-item">
-            <a class="nav-link" href="#" >{{nombre}}</a>
+        <li *ngIf="usuario$ | async as usuario; else registro" class="nav-item">
+            <a class="nav-link" href="#" >{{usuario.email}}</a>
         </li>
        
         <ng-template #registro>
             <a class="nav-link" [routerLink]="['/registro']"  routerLinkActive="activebutton">Registrarse</a>
         </ng-template>
         
-        <li *ngIf="nombre; else logout" class="nav-item">
-          <a class="nav-link" href="#" >Cerrar Sesion</a>
+        <li *ngIf="usuario$ | async as usuario; else logout" class="nav-item">
+          <a class="nav-link" href="#" (click)="cerrarSesion()">Cerrar Sesion</a>
         </li>
         <ng-template #logout>
           <li class="nav-item">

@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { Mensaje } from 'src/app/clases/mensaje';
 import { AuthService } from '../../../services/auth.service';
 import { MensajesService } from '../../../services/mensajes.service';
+import { FormGroup, FormControl } from '@angular/forms';
+
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -10,6 +12,13 @@ import { MensajesService } from '../../../services/mensajes.service';
 })
 export class RegistroComponent  {
 
+  registerForm = new FormGroup({
+    nombre: new FormControl(''),
+    apellido: new FormControl(''),
+    email: new FormControl(''),
+    password: new FormControl(''),
+
+  })
   usuarioIngresado:string;
   nombre:string="";
   apellido:string="";
@@ -59,6 +68,21 @@ export class RegistroComponent  {
       }
       
       
+     }
+
+     async registrarse(){
+       //console.log('Form',this.registerForm.value);
+       try{
+          const {email,password} = this.registerForm.value;
+          const usuario = await this.AuthService.registrar(email,password);
+          if(usuario){
+            this.router.navigate(['home']);
+          }
+       }
+       catch(error){
+         console.log(error);
+       }
+       
      }
      
 

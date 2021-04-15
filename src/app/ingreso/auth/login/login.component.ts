@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
+import { FormGroup, FormControl } from '@angular/forms';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -8,6 +10,13 @@ import { AuthService } from '../../../services/auth.service';
 })
 export class LoginComponent  {
   
+  loginForm = new FormGroup({
+    
+    email: new FormControl(''),
+    password: new FormControl(''),
+   
+
+  })
   correo:string ="";
   constrasena:string ="";             
   
@@ -37,6 +46,22 @@ export class LoginComponent  {
       else{
         alert('Ingrese datos validos');
       }
+      
+  }
+  async ingresar(){
+    
+    try{
+        //console.log('Form',this.loginForm.value);
+      const {email,password} = this.loginForm.value;
+      const usaurio = await this.AuthService.login(email,password);
+      if(usaurio){
+        this.router.navigate(['home']);
+      }
+      
+    }
+    catch(error){
+      console.log(error);
+    }
       
   }
 }
