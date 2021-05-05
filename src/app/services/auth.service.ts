@@ -39,6 +39,11 @@ export class AuthService {
     return typeof myString === 'string' && myString.trim().length !=0 ;
   }
 
+  async enviarMailVerificacion():Promise<void>{
+    return (await this.afAuth.currentUser)?.sendEmailVerification();
+  }
+
+
    async login(email:string,password:string){
       let resultado;
      try{
@@ -64,6 +69,7 @@ export class AuthService {
       console.log(error);
     }
     finally{
+      this.enviarMailVerificacion();
       return resultado;
     }
     

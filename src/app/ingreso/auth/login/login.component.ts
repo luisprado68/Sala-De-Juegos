@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 import { FormGroup, FormControl } from '@angular/forms';
+import { userError } from '@angular/compiler-cli/src/transformers/util';
+
 
 @Component({
   selector: 'app-login',
@@ -53,9 +55,15 @@ export class LoginComponent  {
     try{
         //console.log('Form',this.loginForm.value);
       const {email,password} = this.loginForm.value;
-      const usaurio = await this.AuthService.login(email,password);
-      if(usaurio){
+      const usuario = await this.AuthService.login(email,password);
+
+      if(usuario && usuario.user?.emailVerified){
         this.router.navigate(['home']);
+      }
+      else if(usuario){
+        this.router.navigate(['verificar']);
+      }else{
+        this.router.navigate(['registro']);
       }
       
     }

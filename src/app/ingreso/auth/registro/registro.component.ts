@@ -76,7 +76,7 @@ export class RegistroComponent  {
           const {email,password} = this.registerForm.value;
           const usuario = await this.AuthService.registrar(email,password);
           if(usuario){
-            this.router.navigate(['home']);
+            this.router.navigate(['verificar']);
           }
        }
        catch(error){

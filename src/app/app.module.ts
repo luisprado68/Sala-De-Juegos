@@ -17,6 +17,8 @@ import { QuienSoyComponent } from './general/page/quien-soy/quien-soy.component'
 import { CommonModule } from '@angular/common';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { EnviarMailComponent } from './ingreso/auth/enviar-mail/enviar-mail.component';
+import { JuegosComponent } from './general/page/juegos/juegos.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     RegistroComponent,
     NavbarComponent,
     QuienSoyComponent,
+    EnviarMailComponent,
+    JuegosComponent,
+
   ],
   imports: [
     BrowserModule,

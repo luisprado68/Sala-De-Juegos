@@ -4,6 +4,8 @@ import { HomeComponent } from './general/page/home/home.component';
 import { LoginComponent } from './ingreso/auth/login/login.component';
 import { QuienSoyComponent } from './general/page/quien-soy/quien-soy.component';
 import { RegistroComponent } from './ingreso/auth/registro/registro.component';
+import { EnviarMailComponent } from './ingreso/auth/enviar-mail/enviar-mail.component';
+import { JuegosComponent } from './general/page/juegos/juegos.component';
 
 const routes: Routes = [
   {
@@ -15,12 +17,20 @@ const routes: Routes = [
     component:QuienSoyComponent
   },
   {
+    path:'juegos',
+    component:JuegosComponent
+  },
+  {
     path:'login',
     component:LoginComponent
   },
   {
     path:'registro',
     component:RegistroComponent
+  },
+  {
+    path:'verificar',
+    component:EnviarMailComponent
   },
   {
     path:'**',
